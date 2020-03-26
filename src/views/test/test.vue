@@ -8,8 +8,6 @@
       </div>
       <div class="project-Child">
           <component :is="child" :datainfo="dataInfo"></component>
-       <!--<childCard :datainfo="dataInfo"  v-show="typeTotal==1"></childCard>
-      <childTab :datainfo="dataInfo"  v-show="typeTotal==2"></childTab>-->
       </div>
     </div>
   </div>
@@ -35,7 +33,7 @@ export default {
        this.isChild()
     },
     getInfo() {
-      this.$http.get("/api/data.json?t=" + new Date().getTime()).then(res => {
+      this.$http.get("/api/data.json").then(res => {
         if (res.status == 200) {
           this.dataInfo = res.data.data;
           
